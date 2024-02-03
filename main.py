@@ -1,5 +1,6 @@
 import requests
 import traceback
+import uvicorn
 import base64
 from typing import Union
 from fastapi import FastAPI
@@ -21,4 +22,4 @@ def run_main(datas:str):
             return {"apierror":"post_type most in get,post,head,options,put,delete,patch,trace,connect"}
     except:
         return {"apierror":traceback.format_exc()}
-    
+uvicorn.run("app:app", host="0.0.0.0", port=8080, reload=True)
